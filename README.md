@@ -1,4 +1,4 @@
-# Epicodus Week 4 Day 2 Movie Tickets Project
+# Epicodus Week 4 Day 2 Bank Account Project
 
 ## Author
 
@@ -7,7 +7,7 @@ Randy Weyer
 
 ## Project Name
 
-Movie Tickets
+Bank Account
 
 ## Created
 
@@ -15,9 +15,6 @@ Movie Tickets
 
 ## About
 
-Create a webpage where a user can select the name of a movie, the time of day that they would like to see the movie and their age. The webpage should let them know how much their movie ticket will cost, based on those three factors. Consider that non-"first-release" movies, matinee and senior tickets tend to be cheaper than the regular priced ticket.
-
-Your constructor and prototype could be called Ticket and you can come up with the formula for determining how the price is calculated depending on the input from the user.  
 
 ## Specifications Outline:
 
@@ -35,7 +32,7 @@ https://github.com/Xamdes/movie-tickets.git
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Chris Kibble
+Copyright (c) 2018 Steven Colburn
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
