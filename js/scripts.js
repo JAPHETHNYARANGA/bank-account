@@ -1,3 +1,5 @@
+var currentAccount = "";
+
 $(function(){
   //$("#input-date").val(Date().toISOString());
   $("#form-account").submit(function(event){
@@ -5,11 +7,30 @@ $(function(){
 
     var userName = $("#input-name").val();
     var balance = parseInt($("#input-balance").val());
-
     var newAccount = new BankAccount(userName,balance);
-
+    currentAccount = newAccount;
     newAccount.output();
+  });
 
+  $("#form-balance").submit(function(event){
+    event.preventDefault();
+    if(currentAccount != "")
+    {
+      var deposit = parseInt($("#input-deposit").val());
+      var withdraw = parseInt($("#input-withdraw").val());
+      if(isNaN(deposit))
+      {
+        deposit = 0;
+      }
+      if(isNaN(withdraw))
+      {
+        withdraw = 0;
+      }
+      var temp = deposit-withdraw;
+      console.log(temp);
+      currentAccount.changeBalance(temp);
+      currentAccount.output();
+    }
   });
 
 });
@@ -24,6 +45,11 @@ $(function(){
   {
   $(".output-balance").text(formatUSD(this.balance.toString()));
   };
+
+  BankAccount.prototype.changeBalance = function (amount)
+  {
+    this.balance += amount;
+  }
 
   function clear(temp)
   {
