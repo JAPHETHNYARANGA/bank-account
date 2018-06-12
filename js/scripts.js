@@ -7,6 +7,10 @@ $(function(){
 
     var userName = $("#input-name").val();
     var balance = parseInt($("#input-balance").val());
+    if(isNaN(balance))
+    {
+      balance = 0;
+    }
     var newAccount = new BankAccount(userName,balance);
     currentAccount = newAccount;
     newAccount.output();
@@ -27,7 +31,7 @@ $(function(){
         withdraw = 0;
       }
       var temp = deposit-withdraw;
-      console.log(temp);
+      console.log(formatUSD(temp));
       currentAccount.changeBalance(temp);
       currentAccount.output();
     }
@@ -35,28 +39,28 @@ $(function(){
 
 });
 
-  //Create a constructor for object Task
-  function BankAccount(inputUserName,inputBalance){
+//Create a constructor for object Task
+function BankAccount(inputUserName,inputBalance){
   this.name = inputUserName;
   this.balance = inputBalance;
-  }
+}
 
-  BankAccount.prototype.output = function ()
-  {
-  $(".output-balance").text(formatUSD(this.balance.toString()));
-  };
+BankAccount.prototype.output = function ()
+{
+  $(".output-balance").text(formatUSD(this.balance));
+};
 
-  BankAccount.prototype.changeBalance = function (amount)
-  {
-    this.balance += amount;
-  }
+BankAccount.prototype.changeBalance = function (amount)
+{
+  this.balance += amount;
+}
 
-  function clear(temp)
-  {
+function clear(temp)
+{
   $(temp).val("");
-  }
+}
 
-  function formatUSD(tempString)
-  {
-    return tempString.toLocaleString('en-US',{style: 'currency', currency: 'USD'});
-  }
+function formatUSD(tempString)
+{
+  return tempString.toLocaleString('en-US',{style: 'currency', currency: 'USD'});
+}
