@@ -6,7 +6,7 @@ $(function(){
     event.preventDefault();
 
     var userName = $("#input-name").val();
-    var balance = parseInt($("#input-balance").val());
+    var balance = parseFloat($("#input-balance").val());
     if(isNaN(balance))
     {
       balance = 0;
@@ -20,8 +20,8 @@ $(function(){
     event.preventDefault();
     if(currentAccount != "")
     {
-      var deposit = parseInt($("#input-deposit").val());
-      var withdraw = parseInt($("#input-withdraw").val());
+      var deposit = parseFloat($("#input-deposit").val());
+      var withdraw = parseFloat($("#input-withdraw").val());
       if(isNaN(deposit))
       {
         deposit = 0;
@@ -31,7 +31,7 @@ $(function(){
         withdraw = 0;
       }
       var temp = deposit-withdraw;
-      console.log(formatUSD(temp));
+      //console.log(formatUSD(temp));
       currentAccount.changeBalance(temp);
       currentAccount.output();
     }
